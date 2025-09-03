@@ -1,5 +1,4 @@
 import React from 'react';
-import { eventoConfig } from '../../config/evento';
 import './Footer.css';
 
 export const Footer: React.FC = () => {
@@ -31,9 +30,9 @@ export const Footer: React.FC = () => {
             <div className="footer__section">
               <h3 className="footer__section-title">Contato</h3>
               <ul className="footer__section-list">
-                <li><a href={eventoConfig.links.whatsapp}>WhatsApp</a></li>
-                <li><a href={eventoConfig.links.instagram}>Instagram</a></li>
-                <li><a href={eventoConfig.links.regulamento}>Regulamento</a></li>
+                <li><a href="#">WhatsApp</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Regulamento</a></li>
               </ul>
             </div>
           </div>

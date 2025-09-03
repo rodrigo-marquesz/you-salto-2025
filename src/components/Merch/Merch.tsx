@@ -1,31 +1,47 @@
+// src/components/Merch/Merch.tsx
 import React from 'react';
 import { eventoConfig } from '../../config/evento';
 import './Merch.css';
 
-export const Merch: React.FC = () => {
+export const Merch: React.FC<{ className?: string }> = ({ className = '' }) => {
+  const handleBuyClick = (linkCompra?: string) => {
+    if (linkCompra && linkCompra !== '#') {
+      window.open(linkCompra, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
-    <section id="loja" className="merch">
-      <div className="container">
-        <div className="merch__header">
-          <h2 className="merch__title">
-            Nossa <span className="merch__title-highlight">Loja</span>
+    <section id="loja" className={`merch-section ${className}`}>
+      <div className="merch-container">
+        <div className="merch-header">
+          <h2 className="merch-title">
+            Nossa <span className="merch-accent">Loja</span>
           </h2>
-          <p className="merch__subtitle">
+          <p className="merch-subtitle">
             Leve uma lembrança especial do Salto No Hype
           </p>
         </div>
 
-        <div className="merch__grid">
+        <div className="merch-grid">
           {eventoConfig.produtos.map((produto) => (
-            <div key={produto.id} className="merch__item">
-              <div className="merch__image">
-                <img src={produto.imagem} alt={produto.nome} loading="lazy" />
+            <div key={produto.id} className="merch-item">
+              <div className="merch-image">
+                <img 
+                  src={produto.imagem} 
+                  alt={produto.nome} 
+                  loading="lazy" 
+                  
+                />
               </div>
-              <div className="merch__info">
-                <h3 className="merch__name">{produto.nome}</h3>
-                <span className="merch__price">R$ {produto.preco}</span>
-                <button className="merch__buy-btn">
-                  Comprar
+              <div className="merch-info">
+                <h3 className="merch-name">{produto.nome}</h3>
+                <span className="merch-price">R$ {produto.preco}</span>
+                <button 
+                  className="merch-buy-btn"
+                  onClick={() => handleBuyClick(produto.linkCompra)}
+                  disabled={!produto.linkCompra || produto.linkCompra === '#'}
+                >
+                  {produto.linkCompra && produto.linkCompra !== '#' ? 'Comprar' : 'Em breve'}
                 </button>
               </div>
             </div>

@@ -131,21 +131,6 @@ export function generateGoogleCalendarLink(title: string, startDate: Date, endDa
 }
 
 /**
- * Debounce function para otimizar atualizações frequentes
- */
-export function debounce<T extends (...args: any[]) => any>(
-  func: T,
-  wait: number
-): (...args: Parameters<T>) => void {
-  let timeout: NodeJS.Timeout;
-  
-  return (...args: Parameters<T>) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func(...args), wait);
-  };
-}
-
-/**
  * Hook para criar um timer que atualiza a cada segundo
  */
 export function useTimer(callback: () => void, delay: number = 1000): (() => void) | void {

@@ -1,531 +1,338 @@
-.tickets {
-  padding: var(--space-20) 0;
-  background: var(--color-background);
-  position: relative;
+/* src/components/Tickets/Tickets.css */
+.tickets-section {
+  padding: 4rem 1rem;
+  background: #0a0a0a;
+  color: #fff;
 }
 
-.tickets::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--gradient-hero);
-  opacity: 0.02;
-  pointer-events: none;
+.tickets-container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.tickets__header {
+.tickets-header {
   text-align: center;
-  margin-bottom: var(--space-16);
+  margin-bottom: 3rem;
 }
 
-.tickets__title {
-  font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-black);
-  color: var(--color-text);
-  margin-bottom: var(--space-4);
-  line-height: 1.2;
+.tickets-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
 }
 
-.tickets__title-highlight {
-  color: var(--color-primary);
+.tickets-accent {
+  color: #00d166;
 }
 
-.tickets__subtitle {
-  font-size: var(--font-size-lg);
-  color: var(--color-text-muted);
-  line-height: 1.6;
-  max-width: 600px;
-  margin: 0 auto;
+.tickets-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
 }
 
-.tickets__content {
+.tickets-content {
   display: grid;
-  gap: var(--space-12);
-  max-width: 1000px;
-  margin: 0 auto;
+  gap: 2rem;
+  margin-bottom: 4rem;
 }
 
-.tickets__card {
-  background: var(--color-surface);
+@media (min-width: 768px) {
+  .tickets-content {
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.tickets-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-2xl);
-  padding: var(--space-8);
-  position: relative;
-  overflow: hidden;
-  box-shadow: var(--shadow-xl);
 }
 
-.tickets__card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: var(--gradient-primary);
-}
-
-.tickets__card-header {
+.tickets-card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--space-6);
+  margin-bottom: 2rem;
   flex-wrap: wrap;
-  gap: var(--space-3);
+  gap: 1rem;
 }
 
-.tickets__badge {
-  background: var(--color-primary);
-  color: var(--color-text-dark);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-full);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+.tickets-badge {
+  background: #00d166;
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
-.tickets__urgency {
+.tickets-urgency {
   background: rgba(255, 20, 147, 0.2);
-  border: 1px solid var(--color-accent-neon-pink);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-full);
-  animation: glow 2s ease-in-out infinite;
+  color: #ff1493;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 20, 147, 0.3);
 }
 
-@keyframes glow {
-  0%, 100% { box-shadow: 0 0 10px rgba(255, 20, 147, 0.3); }
-  50% { box-shadow: 0 0 20px rgba(255, 20, 147, 0.5); }
-}
-
-.tickets__urgency-text {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text);
-}
-
-.tickets__pricing {
+.tickets-pricing {
   text-align: center;
-  margin-bottom: var(--space-8);
+  margin-bottom: 2rem;
 }
 
-.tickets__price-old {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: var(--space-2);
-  margin-bottom: var(--space-2);
-}
-
-.tickets__price-old .tickets__price-label {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
-}
-
-.tickets__price-old .tickets__price-value {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-muted);
+.tickets-price-old {
+  color: rgba(255, 255, 255, 0.5);
   text-decoration: line-through;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
 }
 
-.tickets__price-current {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  gap: var(--space-3);
+.tickets-price-current {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #00d166;
 }
 
-.tickets__price-current .tickets__price-label {
-  font-size: var(--font-size-base);
-  color: var(--color-text);
-  font-weight: var(--font-weight-medium);
+.tickets-benefits {
+  margin-bottom: 2rem;
 }
 
-.tickets__price-current .tickets__price-value {
-  font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-black);
-  color: var(--color-primary);
-  line-height: 1;
-}
-
-.tickets__benefits {
-  margin-bottom: var(--space-8);
-}
-
-.tickets__benefits-title {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text);
-  margin-bottom: var(--space-4);
+.tickets-benefits-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
-.tickets__benefits-list {
-  display: grid;
-  gap: var(--space-3);
+.tickets-benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.tickets__benefits-item {
+.tickets-benefits-item {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-3);
-  background: rgba(0, 214, 106, 0.05);
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(0, 214, 106, 0.1);
+  gap: 0.75rem;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  background: rgba(0, 214, 106, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 214, 106, 0.2);
 }
 
-.tickets__benefits-icon {
-  color: var(--color-primary);
-  flex-shrink: 0;
+.tickets-benefits-check {
+  color: #00d166;
+  font-weight: bold;
 }
 
-.tickets__benefits-item span {
-  font-size: var(--font-size-base);
-  color: var(--color-text);
-  font-weight: var(--font-weight-medium);
+.tickets-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
-.tickets__actions {
-  display: grid;
-  gap: var(--space-4);
-  margin-bottom: var(--space-6);
-}
-
-.tickets__buy-button {
-  background: var(--color-primary);
-  color: var(--color-text-dark);
+.tickets-buy-btn {
+  background: #00d166;
+  color: #000;
   border: none;
-  padding: var(--space-5) var(--space-8);
-  border-radius: var(--radius-full);
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
+  padding: 1.25rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: var(--transition-base);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-3);
-  box-shadow: var(--shadow-neon);
+  transition: all 0.3s ease;
 }
 
-.tickets__buy-button::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--gradient-primary);
-  transition: var(--transition-base);
-  z-index: -1;
-}
-
-.tickets__buy-button:hover {
+.tickets-buy-btn:hover {
+  background: #00b359;
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0, 214, 106, 0.4);
 }
 
-.tickets__buy-button:hover::before {
-  background: var(--color-primary-light);
-}
-
-.tickets__buy-button:active {
-  transform: translateY(0);
-}
-
-.tickets__buy-text {
-  font-size: var(--font-size-lg);
-}
-
-.tickets__buy-price {
-  font-size: var(--font-size-base);
-  background: rgba(0, 0, 0, 0.2);
-  padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-md);
-}
-
-.tickets__coupon-toggle {
+.tickets-coupon-btn {
   background: transparent;
   border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: var(--radius-lg);
-  padding: var(--space-3) var(--space-4);
-  color: var(--color-text-muted);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
   cursor: pointer;
-  transition: var(--transition-base);
+  transition: all 0.3s ease;
+}
+
+.tickets-coupon-btn:hover {
+  border-color: #00d166;
+  color: #00d166;
+}
+
+.tickets-coupon-form {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
-.tickets__coupon-toggle:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-  background: rgba(0, 214, 106, 0.05);
-}
-
-.tickets__coupon-form {
-  animation: slideDown 0.3s ease-out;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.tickets__coupon-field {
-  display: flex;
-  gap: var(--space-2);
-}
-
-.tickets__coupon-input {
+.tickets-coupon-input {
   flex: 1;
-  background: var(--color-surface-alt);
+  background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: var(--radius-lg);
-  padding: var(--space-3) var(--space-4);
-  color: var(--color-text);
-  font-size: var(--font-size-base);
-  transition: var(--transition-base);
+  border-radius: 50px;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  font-size: 0.9rem;
 }
 
-.tickets__coupon-input:focus {
-  outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px rgba(0, 214, 106, 0.2);
+.tickets-coupon-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
 }
 
-.tickets__coupon-input::placeholder {
-  color: var(--color-text-muted);
-}
-
-.tickets__coupon-apply {
-  background: var(--color-primary);
-  color: var(--color-text-dark);
+.tickets-coupon-apply {
+  background: #00d166;
+  color: #000;
   border: none;
-  border-radius: var(--radius-lg);
-  padding: var(--space-3) var(--space-5);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: var(--transition-base);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  white-space: nowrap;
 }
 
-.tickets__coupon-apply:disabled {
+.tickets-coupon-apply:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-.tickets__coupon-apply:not(:disabled):hover {
-  background: var(--color-primary-light);
-  transform: translateY(-1px);
-}
-
-.tickets__security {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: var(--space-4);
-}
-
-.tickets__security-icons {
+.tickets-security {
   display: flex;
   justify-content: center;
-  gap: var(--space-6);
-  flex-wrap: wrap;
+  gap: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.tickets__security-item {
+.tickets-security-item {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  color: var(--color-text-muted);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
 }
 
-.tickets__security-item svg {
-  color: var(--color-primary);
-}
-
-.tickets__faq-quick {
-  background: var(--color-surface-alt);
-  border-radius: var(--radius-2xl);
-  padding: var(--space-6);
-}
-
-.tickets__faq-title {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text);
-  margin-bottom: var(--space-6);
-  text-align: center;
-}
-
-.tickets__faq-list {
-  display: grid;
-  gap: var(--space-4);
-}
-
-.tickets__faq-item {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-}
-
-.tickets__faq-question {
+.tickets-faq {
   background: rgba(255, 255, 255, 0.05);
-  padding: var(--space-4);
-  cursor: pointer;
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text);
-  list-style: none;
-  transition: var(--transition-base);
-  position: relative;
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.tickets__faq-question:hover {
-  background: rgba(0, 214, 106, 0.1);
-  color: var(--color-primary);
-}
-
-.tickets__faq-question::after {
-  content: '+';
-  position: absolute;
-  right: var(--space-4);
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-bold);
-  transition: var(--transition-base);
-}
-
-.tickets__faq-item[open] .tickets__faq-question::after {
-  content: '−';
-}
-
-.tickets__faq-answer {
-  padding: var(--space-4);
-  color: var(--color-text-muted);
-  line-height: 1.6;
-  animation: fadeIn 0.3s ease-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.tickets__testimonials {
-  margin-top: var(--space-16);
+.tickets-faq-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
   text-align: center;
 }
 
-.tickets__testimonials-title {
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text);
-  margin-bottom: var(--space-8);
+.tickets-faq-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.tickets__testimonials-grid {
-  display: grid;
-  gap: var(--space-6);
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.tickets__testimonial {
-  background: var(--color-surface);
+.tickets-faq-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-xl);
-  padding: var(--space-6);
+}
+
+.tickets-faq-item h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  color: #00d166;
+}
+
+.tickets-faq-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+.tickets-testimonials {
+  text-align: center;
+}
+
+.tickets-testimonials-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.tickets-testimonials-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .tickets-testimonials-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.tickets-testimonial {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   text-align: left;
 }
 
-.tickets__testimonial-content {
-  margin-bottom: var(--space-4);
-}
-
-.tickets__testimonial-content p {
-  font-size: var(--font-size-base);
-  color: var(--color-text-muted);
-  line-height: 1.6;
+.tickets-testimonial p {
   font-style: italic;
+  margin: 0 0 1rem 0;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
 }
 
-.tickets__testimonial-author strong {
-  display: block;
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text);
-  margin-bottom: var(--space-1);
+.tickets-testimonial-author {
+  display: flex;
+  flex-direction: column;
 }
 
-.tickets__testimonial-author span {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
+.tickets-testimonial-author strong {
+  color: #fff;
+  font-weight: 600;
 }
 
-/* Tablet */
-@media (min-width: 768px) {
-  .tickets__title {
-    font-size: var(--font-size-5xl);
-  }
-
-  .tickets__subtitle {
-    font-size: var(--font-size-xl);
-  }
-
-  .tickets__content {
-    grid-template-columns: 2fr 1fr;
-    gap: var(--space-16);
-  }
-
-  .tickets__card {
-    padding: var(--space-10);
-  }
-
-  .tickets__price-current .tickets__price-value {
-    font-size: var(--font-size-5xl);
-  }
-
-  .tickets__benefits-list {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-4);
-  }
-
-  .tickets__testimonials-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  }
+.tickets-testimonial-author span {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
 }
 
-/* Desktop */
-@media (min-width: 1024px) {
-  .tickets__card {
-    padding: var(--space-12);
+/* Responsividade */
+@media (max-width: 767px) {
+  .tickets-title {
+    font-size: 2rem;
   }
-
-  .tickets__benefits-list {
-    gap: var(--space-6);
+  
+  .tickets-price-current {
+    font-size: 2rem;
   }
-
-  .tickets__buy-button {
-    font-size: var(--font-size-xl);
-    padding: var(--space-6) var(--space-10);
+  
+  .tickets-card-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .tickets-security {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .tickets-coupon-form {
+    flex-direction: column;
   }
 }
